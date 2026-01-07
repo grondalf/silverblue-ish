@@ -73,7 +73,7 @@ modules:
         
   - type: script
     scripts:
-      #- setup-papirus.sh
+      - setup-papirus.sh
       - setup-flathub.sh
       - setup-autofirma.sh
       
