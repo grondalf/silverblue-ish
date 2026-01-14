@@ -93,7 +93,7 @@ modules:
       
   - type: default-flatpaks
     configurations:
-      - notify: false
+      - notify: true
         scope: system
         repo: 
           title: Flathub (system)
@@ -140,10 +140,14 @@ modules:
       
   - type: files
     files:
-      #- source: system/kargs/fstrim-config.toml
-      #  destination: /usr/lib/bootc/kargs.d/
+
+    # Starship related files
       - source: system/dev/starship-profile
         destination: /etc/profile.d/
+
+    # Bootc instead of rpm-ostree updates  
+      - source: system/common/bootc-service-override
+        destination: /etc/systemd/system/bootc-fetch-apply-updates.service.d/
      
   #- type: justfiles
   
@@ -164,7 +168,6 @@ modules:
       - 3780  # ddterm
       - 4158  # Gnome 4x UI Improvements
       - 2236  # Night Theme Switcher
-      - 3733  # Tiling Assistant
       - 355   # Status Area Horizontal Spacing
       - 4491  # Privacy Quick Settings
       - 4269  # Alphabetical App Grid
